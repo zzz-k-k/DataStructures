@@ -11,24 +11,33 @@ public:
     {
         stackTop=nullptr;
     }
+    ~linkedListStack() {
+        while (stackTop != nullptr) {
+            pop();
+        }
+    }
     void push(T value)
     {
         ListNode<T> *stackSecond = new ListNode<T>(value);
         stackSecond->next=stackTop;
-        stackSecond->val=value;
         stackTop=stackSecond;
     }
     void pop()
     {
         if(stackTop==nullptr)
         {
-            ListNode<T>* oldTop = stackTop;
-            stackTop=stackTop->next;
-            delete oldTop;
+            return;
         }
+        ListNode<T>* oldTop = stackTop;
+        stackTop=stackTop->next;
+        delete oldTop;
     }
     T peek()
     {
+        if(stackTop==nullptr)
+        {
+            return;
+        }
         return stackTop->val;
     }
 
