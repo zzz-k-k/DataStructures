@@ -27,7 +27,7 @@ public:
     {
         if(stackTop==nullptr)
         {
-            return;
+            throw std::out_of_range("stack is empty");
         }
         ListNode<T>* oldTop = stackTop;
         stackTop=stackTop->next;
