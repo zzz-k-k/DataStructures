@@ -1,4 +1,5 @@
-#include"listnode.hpp"
+#include"../listnode/listnode.hpp"
+#include <stdexcept>
 
 template<typename T>
 class linkedListStack
@@ -36,7 +37,7 @@ public:
     {
         if(stackTop==nullptr)
         {
-            return;
+            throw std::out_of_range("stack is empty");
         }
         return stackTop->val;
     }
